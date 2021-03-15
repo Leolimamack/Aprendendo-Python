@@ -34,11 +34,88 @@ def mark_correct_guess(guess, guessed_letters_list, secret_word):
         position += 1 
 
 def print_message_winner():
-    print("voce ganhou!")
+    print("Parabéns, você ganhou!")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
 
-def print_message_loser():
-    print("voce perdeu")
+def print_message_loser(secret_word):
+    print("Puxa, você foi enforcado!")
+    print("A palavra era {}".format(secret_word))
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
 
+
+def desenha_forca(error):
+    print("  _______     ")
+    print(" |/      |    ")
+
+    if(error == 1):
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if(error == 2):
+        print(" |      (_)   ")
+        print(" |      \     ")
+        print(" |            ")
+        print(" |            ")
+
+    if(error == 3):
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(error == 4):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if(error == 5):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if(error == 6):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if (error == 7):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
 
 def jogar():
 
@@ -65,6 +142,9 @@ def jogar():
             mark_correct_guess(guess, guessed_letters_list, secret_word)
         else:
             error += 1
+            desenha_forca(error)
+        
+
         hanged = error == 6 
         got_right = "_" not in guessed_letters_list
         print(guessed_letters_list)
@@ -74,7 +154,7 @@ def jogar():
     if(got_right):
         print_message_winner()
     else:
-        print_message_loser()
+        print_message_loser(secret_word)
 
 if(__name__=="__main__"):
     jogar()
