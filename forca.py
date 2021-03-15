@@ -1,11 +1,24 @@
+import random
+
 def jogar():
     print("*********************************")
     print("Bem vindo ao jogo de Forca")
     print("*********************************")
 
+
+    arquivo = open("palavras.txt","r")
+    words = []
+
+    for linha in arquivo:
+        linha = linha.strip()
+        words.append(linha)
+
+    arquivo.close()
     
-    secret_word = "banana".upper()
-    guess_letters_list = ["_","_","_","_","_","_"]
+    number = random.randrange(0, len(words))
+
+    secret_word = words[number].upper()
+    guess_letters_list = ["_" for cha in secret_word] #cha means character
 
     hanged = False
     got_right = False
