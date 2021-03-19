@@ -6,7 +6,7 @@ def print_message_opening():
     print("*********************************")
 
 def load_secret_word():
-    arquivo = open("palavras.txt","r")
+    arquivo = open("palavras.txt",'r')
     words = []
 
     for linha in arquivo:
